@@ -9,6 +9,8 @@ router.get('/', function (req, res, next) {
 
 // POST Worker
 router.post('/newbunny', function (req, res, next) {
+  console.log("new bunny");
+  console.log(req.body);
   var promise = mongoController.create(req.body.name, req.body.jobType,
     req.body.salary, req.body.dateStart, req.body.dateEnd,
     req.body.phone, req.body.email);

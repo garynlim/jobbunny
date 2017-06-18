@@ -17,8 +17,6 @@ conn.once('open', function () { console.log("Great success!") });
 
 
 Controller.create = function (name, jobType, salary, dateStart, dateEnd, phone, email) {
-    console.log("new bunny");
-    console.log(req.body);
     var newWorker = Worker({
         name: name,
         preferredJobType: jobType,
