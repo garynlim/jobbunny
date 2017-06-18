@@ -17,12 +17,14 @@ conn.once('open', function () { console.log("Great success!") });
 
 
 Controller.create = function (name, jobType, salary, dateStart, dateEnd, phone, email) {
+    console.log("new bunny");
+    console.log(req.body);
     var newWorker = Worker({
         name: name,
         preferredJobType: jobType,
         salaryPerHour: salary,
-        workDateStart: moment(dateStart, "DD-MM-YYYY").toString(),
-        workDateEnd: moment(dateEnd, "DD-MM-YYYY").toString(),
+        workDateStart: dateStart,
+        workDateEnd: dateEnd,
         phone: phone,
         email: email
     });
