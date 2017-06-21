@@ -19,6 +19,7 @@ router.post('/newbunny', function (req, res, next) {
   // }, error => {
   //   res.status(500).send(error);
   // })
+  mongoController.addEntry(req.body);
   res.send("OK");
 
 });

@@ -29,6 +29,13 @@ Controller.create = function (name, jobType, salary, dateStart, dateEnd, phone, 
     return newWorker.save();
 }
 
+Controller.addEntry = function (data) {
+    var newWorker = Worker({
+        'data': JSON.stringify(data)
+    });
+    return newWorker.save();
+}
+
 Controller.read = function () {
 
 }
