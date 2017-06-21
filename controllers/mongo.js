@@ -16,15 +16,24 @@ conn.on('error', console.error.bind(console, 'connection error:'));
 conn.once('open', function () { console.log("Great success!") });
 
 
-Controller.create = function (name, jobType, salary, dateStart, dateEnd, phone, email) {
+Controller.create = function (data) {
     var newWorker = Worker({
-        name: name,
-        preferredJobType: jobType,
-        salaryPerHour: salary,
-        workDateStart: dateStart,
-        workDateEnd: dateEnd,
-        phone: phone,
-        email: email
+        'first name': data['first name'],
+        'last name': data['last name'],
+        'gender': data['gender'],
+        'emailAddress': data['emailAddress'],
+        'jobType': data['jobType'],
+        'jobScope': data['jobScope'],
+        'salaryHour': data['salaryHour'],
+        'phoneNumber': data['phoneNumber'],
+        'dateStart': data['dateStart'],
+        'dateEnd': data['dateEnd'],
+        'jobExperience': data['jobExperience'],
+        'salaryMonth': data['salaryMonth'],
+        'qualifcationLevel': data['qualifcationLevel'],
+        'qualificationSubject': data['qualificationSubject'],
+        'qualificationSchool': data['qualificationSchool'],
+        'jobScopeSpecial': data['jobScopeSpecial'],
     });
     return newWorker.save();
 }

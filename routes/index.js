@@ -9,19 +9,12 @@ router.get('/', function (req, res, next) {
 
 // POST Worker
 router.post('/newbunny', function (req, res, next) {
-  console.log("new bunny");
-  console.log(req.body);
-  // var promise = mongoController.create(req.body.name, req.body.jobType,
-  //   req.body.salary, req.body.dateStart, req.body.dateEnd,
-  //   req.body.phone, req.body.email);
-  // promise.then(T => {
-  //   res.json(T);
-  // }, error => {
-  //   res.status(500).send(error);
-  // })
-  mongoController.addEntry(req.body);
-  res.send("OK");
-
+  var newBunny = mongoController.create(req.body);
+  newBunny.then(T => {
+    res.send("OK");
+  }, error => {
+      res.status(500).send()
+  });
 });
 
 module.exports = router;
