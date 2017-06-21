@@ -4,13 +4,15 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var worker = new Schema({
-    name: String,
-    preferredJobType: String,
-    salaryPerHour: Number,
-    workDateStart: String,
-    workDateEnd: String,
-    phone: String,
-    email: String
+    'first name': String,
+    'last name': String,
+    'Email address': String,
+    'Jobtype': String,
+    'Salary': String,
+    'Phone Number': String,
+    'workdateend': String,
+    'workdatestart': String,
+    'preferredJobType': String
 });
 
 module.exports = mongoose.model('worker', worker);
