@@ -38,7 +38,7 @@ router.get('/postjob', function (req, res, next) {
 
 // POST Worker
 router.post('/newbunny', function (req, res, next) {
-  var newBunny = mongo.create(req.body);
+  var newBunny = database.create(req.body);
   newBunny.then(T => {
     res.send("OK");
   }, error => {
