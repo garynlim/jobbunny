@@ -17,6 +17,9 @@ conn.once('open', function () { console.log("Great success!") });
 
 
 Controller.create = function (data) {
+    console.log("Received data for creating entry:");
+    console.log(data);
+
     var newWorker = Worker({
         'first name': data['first name'],
         'last name': data['last name'],
