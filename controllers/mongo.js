@@ -58,6 +58,12 @@ Controller.readAll = function () {
     return Worker.findById();
 }
 
+// Retrieve most recent 20 profiles
+Controller.readRecent = function () {
+    var numOfProfiles = 20;
+    return Worker.find().sort({ $natural: -1 }).limit(numOfProfiles);
+}
+
 Controller.update = function (id, val) {
     Worker.findByIdAndUpdate(id, val, { new: true }, (err, res) => {
         if (err) console.log(err);

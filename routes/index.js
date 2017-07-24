@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var mongoController = require('../controllers/mongo');
+var database = require('../controllers/mongo');
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
@@ -9,7 +9,11 @@ router.get('/', function (req, res, next) {
 
 /* GET employee search page. */
 router.get('/employeesearch', function (req, res, next) {
-  res.render('employeesearch', { title: 'Jobbunny' });
+  //get data of most recently added employees
+  database.readRecent().then(employees => {
+    console.log(employees);
+    res.render('employeesearch', { title: 'Jobbunny', employees: employees});
+  });
 });
 
 /* GET about page. */
@@ -34,7 +38,7 @@ router.get('/postjob', function (req, res, next) {
 
 // POST Worker
 router.post('/newbunny', function (req, res, next) {
-  var newBunny = mongoController.create(req.body);
+  var newBunny = mongo.create(req.body);
   newBunny.then(T => {
     res.send("OK");
   }, error => {
