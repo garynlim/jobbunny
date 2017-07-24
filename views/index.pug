@@ -1,5 +1,13 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  // Hero
+  .container-fluid
+    .hero
+      img(src='img/Jobbunny.png', style='padding-top:5em;height:100%;width:200px')
+      br
+      h1  Hop Hop do you need a job?
+      br
+      a.btn-lg.btn-success(href='http://www.facebook.com/jobbunny') For Jobseekers
+      a.btn-lg.btn-warning(href='/employeesearch') For Employers
+

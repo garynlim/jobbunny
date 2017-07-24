@@ -1,0 +1,116 @@
+/*!
+ * Bootstrap v3.3.7 (http://getbootstrap.com)
+ * Copyright 2011-2016 Twitter, Inc.
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+ */
+
+
+/*! Reference
+
+. = class
+
+# = id
+
+*/
+
+
+body{ background-color: #fecf28;
+      height: 100%;
+
+}
+
+
+.header {
+    color:#ffffff;
+    padding:2em;
+    padding-left:4em;
+
+}
+
+#nav {
+    padding-top:2em;
+    font-size: 1.3em;
+}
+
+.hero {
+    color:#ffffff;
+    text-align: center;
+    margin-bottom: 3em;
+}
+
+
+.footer {
+bottom:0px;
+width: 100%;
+height:5%;
+background-color: #138b19;
+color:#ffffff;
+text-align: center;
+padding: 2em;
+margin-top:3em;
+}
+
+.postjob{
+padding-bottom:3em;
+
+}
+
+.contentholder{
+padding: 3em;
+padding-left: auto;
+padding-right: auto;
+
+}
+
+.employeecard{
+background-color: #ffffff;
+width:180px;
+height:360px;
+padding:2em;
+color:#464646;
+border: 2px solid #ececec ;
+border-radius: 10px;
+
+}
+
+.employeeprofile{
+background-color: #ffffff;
+text-align: left;
+width:80%;
+height:100%;
+margin-left: auto;
+margin-right: auto;
+padding:2em;
+padding-bottom: 5em;
+color:#363636;
+border: 2px solid #ececec ;
+border-radius: 20px;
+
+}
+
+.employeeprofile img{
+
+  object-fit: cover; 
+  object-position: center; 
+  height: 150px;
+  width: 150px;
+  border: 2px solid #ececec ;
+  border-radius: 20px;
+
+}
+
+
+.employeecard img {
+
+  object-fit: cover;
+  border-radius: 20px;
+  object-position: center; 
+  height: 100px;
+  width: 100px;
+   
+}
+
+#salary {
+ color: #2ab400;   
+}
+

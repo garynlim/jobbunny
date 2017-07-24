@@ -8,7 +8,7 @@ var options = {
     server: { socketOptions: { keepAlive: 300000, connectTimeoutMS: 30000 } },
     replset: { socketOptions: { keepAlive: 300000, connectTimeoutMS: 30000 } }
 };
-var mongodbUri = 'mongodb://bunny01:00JobsBunny00@ds131432.mlab.com:31432/jobsbunnyworkers';
+var mongodbUri = 'mongodb://jobbunnyadmin:jobbunnyadminasdlkjasdlkj123@ds111103.mlab.com:11103/jobbunnyworkers';
 mongoose.connect(mongodbUri, options);
 mongoose.Promise = global.Promise;
 var conn = mongoose.connection;
