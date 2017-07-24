@@ -39,6 +39,7 @@ Controller.create = function (data) {
         'jobScopeSpecial': data['jobScopeSpecial'],
         'profilePic': data['profile pic url']
     });
+
     return newWorker.save();
 }
 

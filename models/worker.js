@@ -19,7 +19,8 @@ var worker = new Schema({
     'qualifcationLevel': String,
     'qualificationSubject': String,
     'qualificationSchool': String,
-    'jobScopeSpecial': String
+    'jobScopeSpecial': String,
+    'profilePic': String
 });
 
 module.exports = mongoose.model('worker', worker);
