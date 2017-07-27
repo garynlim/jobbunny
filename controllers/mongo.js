@@ -29,8 +29,8 @@ Controller.create = function (data) {
         'jobScope': data['jobScope'],
         'salaryHour': data['salaryHour'],
         'phoneNumber': data['phoneNumber'],
-        'dateStart': data['dateStart'],
-        'dateEnd': data['dateEnd'],
+        'dateStart': moment(data['dateStart'], 'DD/MM/YYYY').toDate(),
+        'dateEnd': moment(data['dateEnd'], 'DD/MM/YYYY').toDate(),
         'jobExperience': data['jobExperience'],
         'salaryMonth': data['salaryMonth'],
         'qualifcationLevel': data['qualifcationLevel'],
@@ -73,5 +73,34 @@ Controller.update = function (id, val) {
 Controller.delete = function () {
 
 }
+
+Controller.filter = function(criteria) {
+    // format dates
+    
+    criteria.dateStart = moment(criteria.dateStart, 'YYYY-MM-DD').toDate();
+    criteria.dateEnd = moment(criteria.dateEnd, 'YYYY-MM-DD').toDate();
+    
+    // get all employees in same jobType and jobScope
+    return Worker.find({
+        'jobScope': criteria.jobScope, 
+        'jobType': criteria.jobType,
+        'dateStart': { $lte: criteria.dateStart }, // worker start date <= company start date
+        'dateEnd': { $gte: criteria.dateEnd }, // worker end date >= company end date
+        $or: [{ // worker salary <= company salary
+            'salaryHour': { $lte: criteria.salary }
+        }, {
+            'salaryMonth': { $lte: criteria.salary }  
+        }]
+    });
+}
+
+// Controller.filter({
+//     'jobType': 'Part-timer',
+//     'jobScope' : 'Events',
+//     'dateStart': '2017-07-28',
+//     'dateEnd': '2017-07-29',
+//     'salary': 100
+// }).then(e => console.log(e));
+
 
 module.exports = Controller;

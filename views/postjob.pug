@@ -13,20 +13,20 @@ block content
           h1 Post a Job
           |             
           br
-          |             Jobbunny will automatically show you up to 10 available employees that matches your criteria using our algorithm
+          | Jobbunny will automatically show you up to 10 available employees that matches your criteria using our algorithm
           |             
           br
           br
           |         
-          form.form-horizontal(action="employeesearch.html")
+          form.form-horizontal(action="/filter", method="post")
             .form-group
               label.control-label.col-sm-2 Job Type
               |                    
               .col-sm-10
-                select.form-control
-                  option Part-Timer
+                select.form-control(name='jobType')
+                  option Part-timer
                   |                             
-                  option Full-Timer
+                  option Full-timer
                   |                             
                   option Freelancer
             |             
@@ -35,7 +35,7 @@ block content
               |                        
               |                     
               .col-sm-10
-                select.form-control
+                select.form-control(name='jobScope')
                   option Sales
                   |                             
                   option Retail
@@ -59,44 +59,33 @@ block content
               |                        
               |                     
               .col-sm-10
-                textarea.form-control(rows="5", placeholder="Please describe in detail the job scope you                             would like your employee to perform")
+                textarea.form-control(rows="5", placeholder="Please describe in detail the job scope you would like your employee to perform", name="description")
             |               
             .form-group
               label.control-label.col-sm-2 Working Period
-              |                    
-              .col-sm-4
+              .col-sm-5 Start:
                 .input-group.datepicker
-                  input(type="text", name="daterange", value="01/01/2017 - 01/31/2017")
-                  |                           
-                  span.input-group-addon
-                    span.glyphicon.glyphicon-calendar
-                  |                     
-                  script(type="text/javascript").
-                    $(function() {
-                    $('.datepicker').daterangepicker();
-                    });
-              |                    
-              .col-sm-4
-            |             
+                  input(type="date", name="dateStart")
+              .col-sm-5 End:
+                .input-group.datepicker
+                  input(type="date", name="dateEnd")
             .form-group
               label.control-label.col-sm-2 Start Timing
               |                    
               .col-sm-4
                 .input-group.clockpicker
-                  input.form-control(type="text", value="09:30")
+                  input.form-control(type="text", value="09:30", name="startTime")
                   |                                
                   span.input-group-addon
                     span.glyphicon.glyphicon-time
                   |                                
                   script(type="text/javascript").
                     $('.clockpicker').clockpicker();
-              |  
-              |                 
               label.control-label.col-sm-2 End Timing
               |                          
               .col-sm-4
                 .input-group.clockpicker
-                  input.form-control(type="text", value="09:30")
+                  input.form-control(type="text", value="09:30", name="endTime")
                   |                                 
                   span.input-group-addon
                     span.glyphicon.glyphicon-time
@@ -109,7 +98,7 @@ block content
               |                        
               |                     
               .col-sm-10
-                select.form-control
+                select.form-control(name="salaryType")
                   option Per Hour
                   |                             
                   option Per Month
@@ -121,7 +110,7 @@ block content
               |                        
               |                     
               .col-sm-10
-                input.form-control(type="number", placeholder="How much are you willing to pay?")
+                input.form-control(type="number", placeholder="How much are you willing to pay?", name="salary")
             |             
             |             
             .form-group
@@ -129,36 +118,34 @@ block content
               |                        
               |                     
               .col-sm-10
-                input.form-control(type="text")
+                input.form-control(type="text", name="companyName")
             |              
             .form-group
               label.control-label.col-sm-2 Company Website
               |                        
               |                     
               .col-sm-10
-                input.form-control(type="url")
+                input.form-control(type="url", name="companyWebsite")
             |             
             .form-group
               label.control-label.col-sm-2 Name
               |                        
               |                     
               .col-sm-10
-                input.form-control(type="text")
+                input.form-control(type="text", name="employerName")
             |             
             .form-group
               label.control-label.col-sm-2 Email
               |                        
               |                     
               .col-sm-10
-                input.form-control(type="email")
+                input.form-control(type="email", name="employerEmail")
             |             
             .form-group
               label.control-label.col-sm-2 Contact Number
               |                        
               |                     
               .col-sm-10
-                input.form-control(type="text")
-            |             
-            |                 
-            |  
+                input.form-control(type="text", , name="employerContact")
+            input(type='submit')
             a.btn-lg.btn-warning.pull-right(href="employeesearch.html") Generate Employees

@@ -36,6 +36,14 @@ router.get('/postjob', function (req, res, next) {
   res.render('postjob', { title: 'Jobbunny' });
 });
 
+/* Search for employees with the required parameters */
+router.post('/filter', function (req, res, next) {
+  console.log(req.body);
+  database.filter(req.body).then(employees => {
+    res.render('employeesearch', { title: 'Jobbunny', employees: employees});
+  })
+})
+
 // POST Worker
 router.post('/newbunny', function (req, res, next) {
   var newBunny = database.create(req.body);
