@@ -38,7 +38,8 @@ Controller.create = function (data) {
         'qualificationSchool': data['qualificationSchool'],
         'jobScopeSpecial': data['jobScopeSpecial'],
         'profilePic': data['profile pic url'],
-        'messengerUserId': data['messenger user id']
+        'messengerUserId': data['messenger user id'],
+        'chatfuelUserId': data['chatfuel user id']
     });
 
     return newWorker.save();
