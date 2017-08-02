@@ -23,7 +23,7 @@ block content
               label.control-label.col-sm-2 Job Type
               |                    
               .col-sm-10
-                select.form-control(name='jobType')
+                select.form-control(name='jobType' required)
                   option Part-timer
                   |                             
                   option Full-timer
@@ -35,7 +35,7 @@ block content
               |                        
               |                     
               .col-sm-10
-                select.form-control(name='jobScope')
+                select.form-control(name='jobScope' required)
                   option Sales
                   |                             
                   option Retail
@@ -65,10 +65,10 @@ block content
               label.control-label.col-sm-2 Working Period
               .col-sm-5 Start:
                 .input-group.datepicker
-                  input(type="date", name="dateStart")
+                  input(type="date", name="dateStart" required)
               .col-sm-5 End:
                 .input-group.datepicker
-                  input(type="date", name="dateEnd")
+                  input(type="date", name="dateEnd" required)
             .form-group
               label.control-label.col-sm-2 Start Timing
               |                    
@@ -98,7 +98,7 @@ block content
               |                        
               |                     
               .col-sm-10
-                select.form-control(name="salaryType")
+                select.form-control(name="salaryType" required)
                   option Per Hour
                   |                             
                   option Per Month
@@ -110,7 +110,7 @@ block content
               |                        
               |                     
               .col-sm-10
-                input.form-control(type="number", placeholder="How much are you willing to pay?", name="salary")
+                input.form-control(type="number", placeholder="How much are you willing to pay?", name="salary" required)
             |             
             |             
             .form-group
@@ -147,5 +147,4 @@ block content
               |                     
               .col-sm-10
                 input.form-control(type="text", , name="employerContact")
-            input(type='submit')
-            a.btn-lg.btn-warning.pull-right(href="employeesearch.html") Generate Employees
+            button.btn-lg.btn-warning.pull-right(type='submit') Generate Employees
