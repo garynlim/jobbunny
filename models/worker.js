@@ -20,7 +20,8 @@ var worker = new Schema({
     'qualificationSubject': String,
     'qualificationSchool': String,
     'jobScopeSpecial': String,
-    'profilePic': String
+    'profilePic': String,
+    'messengerUserId': String
 });
 
 module.exports = mongoose.model('worker', worker);
