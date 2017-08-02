@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var database = require('../controllers/mongo');
+var broadcast = require('../controllers/broadcast');
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
@@ -40,7 +41,7 @@ router.get('/postjob', function (req, res, next) {
 router.post('/filter', function (req, res, next) {
   console.log(req.body);
   database.filter(req.body).then(employees => {
-    res.render('employeesearch', { title: 'Jobbunny', employees: employees});
+    res.render('employeesearch', { title: 'Jobbunny', employees: employees, job: req.body });
   })
 })
 
@@ -52,6 +53,13 @@ router.post('/newbunny', function (req, res, next) {
   }, error => {
       res.status(500).send()
   });
+});
+
+// Broadcast job offer to user
+router.post('/offerjob', function (req, res, next) {
+  console.log(req.body);
+  broadcast(req.body);
+  res.send('OK');
 });
 
 module.exports = router;

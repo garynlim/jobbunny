@@ -23,6 +23,9 @@ block content
                 | 2-3 Exp
               p
                 a.btn-sm.btn-warning(href='employeeprofile.html') View Profile
+              if job
+                a.btn-sm.btn-warning Offer Job
+            
           if employees
             each bunny in employees
               .col-sm-2
@@ -36,3 +39,13 @@ block content
                     p=('$' + bunny['salaryHour'] + '/hour')
                   p
                     a.btn-sm.btn-warning(href='employeeprofile') View Profile
+                  if job
+                    .job-offer.click
+                      .btn-sm.btn-warning.job-offer-btn Offer Job
+                      .hide 
+                        .company=job['companyName']
+                        .description=job['description']
+                        .userId=bunny['chatfuelUserId']
+
+block scripts
+  script(type='text/javascript', src='/js/offerjob.js')

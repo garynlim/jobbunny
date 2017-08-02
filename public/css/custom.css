@@ -117,3 +117,7 @@ border-radius: 20px;
 input {
     color: black;
 }
+
+.click {
+    cursor: pointer;
+}
